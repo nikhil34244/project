@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Job Portal Dashboard">
+  <title>Job Listing Portal - Dashboard</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- DASHBOARD CONTAINER -->
+  <div class="dashboard-container">
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <!-- LOGO -->
+        <h2 class="logo">Job Portal</h2>
+
+        <!-- LOGOUT BUTTON -->
+        <button id="logoutBtn" class="logout-button">Logout</button>
+      </div>
+    </nav>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <div class="dashboard">
+      <!-- WELCOME SECTION -->
+      <div class="welcome-section">
+        <h1>Welcome, <span id="userName">User</span>!</h1>
+
+        <!-- USER INFORMATION -->
+        <div class="user-info">
+          <p>
+            <strong>Email:</strong> 
+            <span id="userEmail">Loading...</span>
+          </p>
+          <p>
+            <strong>Account Type:</strong> 
+            <span id="userType">Loading...</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIREBASE SCRIPTS -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+
+  <!-- CUSTOM SCRIPTS -->
+  <script src="js/firebaseConfig.js"></script>
+  <script src="js/authService.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

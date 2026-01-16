@@ -1,0 +1,386 @@
+/* Home Page Styles */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900"><defs><linearGradient id="homeGrad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23667eea;stop-opacity:1" /><stop offset="50%25" style="stop-color:%23764ba2;stop-opacity:0.95" /><stop offset="100%25" style="stop-color:%234a3368;stop-opacity:1" /></linearGradient><filter id="homeGlow"><feGaussianBlur stdDeviation="6" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><pattern id="homeMesh" patternUnits="userSpaceOnUse" width="150" height="150"><circle cx="75" cy="75" r="1" fill="white" opacity="0.15"/><path d="M 75 0 L 150 75 L 75 150 L 0 75 Z" stroke="white" stroke-width="0.5" fill="none" opacity="0.08"/></pattern><radialGradient id="homeBlob1" cx="15%25" cy="35%25" r="55%25"><stop offset="0%25" style="stop-color:rgba(255,255,255,0.35);stop-opacity:1" /><stop offset="100%25" style="stop-color:rgba(255,255,255,0);stop-opacity:1" /></radialGradient><radialGradient id="homeBlob2" cx="85%25" cy="65%25" r="50%25"><stop offset="0%25" style="stop-color:rgba(118,75,162,0.3);stop-opacity:1" /><stop offset="100%25" style="stop-color:rgba(118,75,162,0);stop-opacity:1" /></radialGradient><radialGradient id="homeBlob3" cx="50%25" cy="100%25" r="40%25"><stop offset="0%25" style="stop-color:rgba(102,126,234,0.2);stop-opacity:1" /><stop offset="100%25" style="stop-color:rgba(102,126,234,0);stop-opacity:1" /></radialGradient></defs><rect width="1400" height="900" fill="url(%23homeGrad)"/><rect width="1400" height="900" fill="url(%23homeMesh)"/><circle cx="250" cy="180" r="380" fill="url(%23homeBlob1)" filter="url(%23homeGlow)"/><circle cx="1150" cy="720" r="320" fill="url(%23homeBlob2)" filter="url(%23homeGlow)"/><circle cx="700" cy="950" r="280" fill="url(%23homeBlob3)" filter="url(%23homeGlow)"/><path d="M 0 300 Q 350 250 700 300 T 1400 300" stroke="white" stroke-width="1" fill="none" opacity="0.12"/><path d="M 0 600 Q 350 550 700 600 T 1400 600" stroke="white" stroke-width="0.8" fill="none" opacity="0.08"/></svg>') center/cover,
+    linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Navigation Bar */
+.navbar {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid white;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn.login-btn {
+  background: transparent;
+  color: white;
+}
+
+.nav-btn.login-btn:hover {
+  background: white;
+  color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+.nav-btn.register-btn {
+  background: white;
+  color: #667eea;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-btn.register-btn:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Hero Section */
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700"><defs><linearGradient id="herGrad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23667eea;stop-opacity:0.9" /><stop offset="50%25" style="stop-color:%23764ba2;stop-opacity:0.85" /><stop offset="100%25" style="stop-color:%234a3368;stop-opacity:0.95" /></linearGradient><filter id="heroGlow"><feGaussianBlur stdDeviation="5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><pattern id="heroPattern" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.2"/><circle cx="50" cy="50" r="1" fill="white" opacity="0.15"/><circle cx="90" cy="90" r="1.5" fill="white" opacity="0.2"/><path d="M 0 50 L 100 50" stroke="white" stroke-width="0.3" opacity="0.06"/></pattern><radialGradient id="heroBlob1" cx="25%25" cy="25%25" r="60%25"><stop offset="0%25" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" /><stop offset="100%25" style="stop-color:rgba(255,255,255,0);stop-opacity:1" /></radialGradient><radialGradient id="heroBlob2" cx="75%25" cy="75%25" r="55%25"><stop offset="0%25" style="stop-color:rgba(102,126,234,0.3);stop-opacity:1" /><stop offset="100%25" style="stop-color:rgba(102,126,234,0);stop-opacity:1" /></radialGradient></defs><rect width="1400" height="700" fill="url(%23herGrad)"/><rect width="1400" height="700" fill="url(%23heroPattern)"/><circle cx="350" cy="150" r="400" fill="url(%23heroBlob1)" filter="url(%23heroGlow)"/><circle cx="1050" cy="550" r="350" fill="url(%23heroBlob2)" filter="url(%23heroGlow)"/><path d="M 0 350 Q 350 280 700 350 T 1400 350" stroke="white" stroke-width="1" fill="none" opacity="0.15"/></svg>') center/cover,
+    linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heroFloat 15s ease-in-out infinite;
+  filter: blur(60px);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -30%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: heroFloat 18s ease-in-out infinite reverse;
+  filter: blur(70px);
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-50px) translateX(40px); }
+  66% { transform: translateY(40px) translateX(-40px); }
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 700px;
+  animation: slideUp 0.8s ease;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.primary-btn {
+  background: white;
+  color: #667eea;
+}
+
+.primary-btn:hover {
+  background: #f0f0f0;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.secondary-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.secondary-btn:hover {
+  background: white;
+  color: #667eea;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Features Section */
+.features {
+  background: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500"><defs><linearGradient id="featGrad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23ffffff;stop-opacity:1" /><stop offset="50%25" style="stop-color:%23f5f7ff;stop-opacity:1" /><stop offset="100%25" style="stop-color:%23ede9fe;stop-opacity:1" /></linearGradient><filter id="featGlow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><pattern id="featMesh" patternUnits="userSpaceOnUse" width="120" height="120"><circle cx="60" cy="60" r="2" fill="%23667eea" opacity="0.08"/><path d="M 0 0 L 120 120 M 120 0 L 0 120" stroke="%23667eea" stroke-width="0.3" opacity="0.06"/></pattern><radialGradient id="featBlob1" cx="20%25" cy="20%25" r="45%25"><stop offset="0%25" style="stop-color:rgba(102,126,234,0.15);stop-opacity:1" /><stop offset="100%25" style="stop-color:rgba(102,126,234,0);stop-opacity:1" /></radialGradient><radialGradient id="featBlob2" cx="80%25" cy="80%25" r="50%25"><stop offset="0%25" style="stop-color:rgba(118,75,162,0.12);stop-opacity:1" /><stop offset="100%25" style="stop-color:rgba(118,75,162,0);stop-opacity:1" /></radialGradient></defs><rect width="1400" height="500" fill="url(%23featGrad)"/><rect width="1400" height="500" fill="url(%23featMesh)"/><circle cx="280" cy="100" r="300" fill="url(%23featBlob1)" filter="url(%23featGlow)"/><circle cx="1120" cy="400" r="280" fill="url(%23featBlob2)" filter="url(%23featGlow)"/><path d="M 0 250 Q 350 200 700 250 T 1400 250" stroke="%23667eea" stroke-width="0.5" fill="none" opacity="0.1"/></svg>') center/cover,
+    linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, rgba(102, 126, 234, 0.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #2d3748;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  padding: 2rem;
+  background: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="grad1" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:%23f5f7fa;stop-opacity:1" /><stop offset="100%25" style="stop-color:%23e0e7ff;stop-opacity:1" /></linearGradient><pattern id="smalldots" patternUnits="userSpaceOnUse" width="4" height="4"><circle cx="2" cy="2" r="1" fill="%23667eea" opacity="0.1"/></pattern></defs><rect width="400" height="300" fill="url(%23grad1)"/><rect width="400" height="300" fill="url(%23smalldots)"/></svg>') center/cover,
+    linear-gradient(135deg, rgba(245, 247, 250, 0.9) 0%, rgba(192, 207, 226, 0.9) 100%);
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -30%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(118, 75, 162, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.25);
+  background-position: 10px 10px;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2d3748;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: #718096;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-btn {
+    width: 100%;
+  }
+
+  .nav-buttons {
+    gap: 0.5rem;
+  }
+
+  .nav-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .features {
+    padding: 3rem 1rem;
+  }
+
+  .features h2 {
+    font-size: 1.8rem;
+  }
+}

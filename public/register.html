@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a new Job Portal account">
+  <title>Job Listing Portal - Register</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- REGISTRATION PAGE CONTAINER -->
+  <div class="auth-container">
+    <!-- REGISTRATION CARD -->
+    <div class="auth-card">
+      <h1>Create Account</h1>
+      <p class="auth-subtitle">Join our Job Listing Portal</p>
+
+      <!-- SUCCESS MESSAGE -->
+      <div id="successMessage" class="success-message"></div>
+
+      <!-- ERROR MESSAGE -->
+      <div id="errorMessage" class="error-message"></div>
+
+      <!-- REGISTRATION FORM -->
+      <form id="registerForm" class="auth-form">
+        <!-- EMAIL INPUT -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="your@email.com" 
+            required
+          />
+          <span class="field-error" id="emailError"></span>
+        </div>
+
+        <!-- FULL NAME INPUT -->
+        <div class="form-group">
+          <label for="displayName">Full Name</label>
+          <input 
+            type="text" 
+            id="displayName" 
+            name="displayName" 
+            placeholder="John Doe" 
+            required
+          />
+          <span class="field-error" id="displayNameError"></span>
+        </div>
+
+        <!-- USER TYPE DROPDOWN -->
+        <div class="form-group">
+          <label for="userType">I am a</label>
+          <select id="userType" name="userType" class="auth-select" required>
+            <option value="jobseeker">Job Seeker</option>
+            <option value="employer">Employer</option>
+          </select>
+        </div>
+
+        <!-- PASSWORD INPUT -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            placeholder="Enter at least 6 characters" 
+            required
+          />
+          <span class="field-error" id="passwordError"></span>
+        </div>
+
+        <!-- CONFIRM PASSWORD INPUT -->
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input 
+            type="password" 
+            id="confirmPassword" 
+            name="confirmPassword" 
+            placeholder="Confirm your password" 
+            required
+          />
+          <span class="field-error" id="confirmPasswordError"></span>
+        </div>
+
+        <!-- REGISTER BUTTON -->
+        <button type="submit" class="auth-button" id="registerBtn">
+          Create Account
+        </button>
+      </form>
+
+      <!-- LINK TO LOGIN -->
+      <p class="auth-footer">
+        Already have an account?
+        <a href="login.html" class="auth-link">Login here</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- FIREBASE SCRIPTS -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+
+  <!-- CUSTOM SCRIPTS -->
+  <script src="js/firebaseConfig.js"></script>
+  <script src="js/authService.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>
