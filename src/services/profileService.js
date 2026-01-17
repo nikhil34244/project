@@ -2,6 +2,11 @@ import { doc, setDoc, getDoc, updateDoc, deleteDoc, query, getDocs, collection }
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { db, storage } from './firebaseConfig';
 
+// Ensure Firebase is initialized before using db and storage
+if (!db || !storage) {
+  console.error('Firebase services not initialized. Please check your .env.local configuration.');
+}
+
 /**
  * ==================== JOB SEEKER PROFILE FUNCTIONS ====================
  */
