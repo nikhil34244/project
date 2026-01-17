@@ -7,11 +7,6 @@ import {
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { auth, db } from './firebaseConfig';
 
-// Ensure Firebase is initialized before using auth and db
-if (!auth || !db) {
-  console.error('Firebase services not initialized. Please check your .env.local configuration.');
-}
-
 /**
  * Register a new user with email, password, and user type
  * @param {string} email - User's email

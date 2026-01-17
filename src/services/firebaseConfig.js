@@ -6,22 +6,30 @@ import { getStorage } from 'firebase/storage';
 // Firebase Configuration
 // Get these values from: https://console.firebase.google.com/
 // Project Settings → Your Apps → Web App → Firebase SDK snippet
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY || "YOUR_API_KEY_HERE",
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || "YOUR_PROJECT.firebaseapp.com",
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID || "YOUR_PROJECT_ID",
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET || "YOUR_PROJECT.appspot.com",
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID || "YOUR_SENDER_ID",
-  appId: process.env.REACT_APP_FIREBASE_APP_ID || "YOUR_APP_ID",
-};
 
-// Validate that required config values are provided
-if (firebaseConfig.apiKey === "YOUR_API_KEY_HERE") {
-  console.error(
-    "Firebase configuration is missing! Please update .env.local with your actual Firebase credentials. " +
-    "Get them from: https://console.firebase.google.com/"
+// Check if environment variables are loaded
+const apiKey = process.env.REACT_APP_FIREBASE_API_KEY;
+const authDomain = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
+const projectId = process.env.REACT_APP_FIREBASE_PROJECT_ID;
+const storageBucket = process.env.REACT_APP_FIREBASE_STORAGE_BUCKET;
+const messagingSenderId = process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID;
+const appId = process.env.REACT_APP_FIREBASE_APP_ID;
+
+// Log if env variables are missing (debugging)
+if (!apiKey || !projectId) {
+  console.warn(
+    "⚠️ Firebase environment variables may not be loaded. Ensure .env.local exists in your project root with REACT_APP_FIREBASE_* variables."
   );
 }
+
+const firebaseConfig = {
+  apiKey: apiKey || "",
+  authDomain: authDomain || "",
+  projectId: projectId || "",
+  storageBucket: storageBucket || "",
+  messagingSenderId: messagingSenderId || "",
+  appId: appId || "",
+};
 
 // Initialize Firebase
 let app;
@@ -34,8 +42,11 @@ try {
   auth = getAuth(app);
   db = getFirestore(app);
   storage = getStorage(app);
+  
+  console.log("✓ Firebase initialized successfully");
 } catch (error) {
-  console.error("Firebase initialization error:", error);
+  console.error("✗ Firebase initialization error:", error.message);
+  console.error("Please check your Firebase configuration in .env.local");
 }
 
 export { auth, db, storage, app };
