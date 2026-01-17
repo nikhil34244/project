@@ -13,7 +13,11 @@ function Dashboard() {
     const fetchUser = async () => {
       try {
         const userData = await getCurrentUser();
+        console.log('User data fetched from Firestore:', userData);
         setUser(userData);
+        if (!userData) {
+          console.warn('No user data found in Firestore');
+        }
       } catch (error) {
         console.error('Error fetching user:', error);
       } finally {
@@ -141,44 +145,59 @@ function Dashboard() {
               <div className="welcome-section">
                 <div className="user-info-card">
                   <div className="card-header">
-                    <h3>Account Information</h3>
+                    <h3>Your Registration Details</h3>
                     <span className="account-type-badge">
                       {isJobSeeker ? '💼 Job Seeker' : '🏢 Employer'}
                     </span>
                   </div>
-                  <div className="info-item">
-                    <span className="label">📧 Email:</span>
-                    <span className="value">
-                      {user?.email || 'No email found'}
-                    </span>
+                  
+                  <div className="info-section">
+                    <div className="info-item">
+                      <span className="label">📧 Email Address:</span>
+                      <span className="value">
+                        {user?.email && user.email !== undefined ? user.email : 'Loading...'}
+                      </span>
+                    </div>
                   </div>
-                  <div className="info-item">
-                    <span className="label">👤 Name:</span>
-                    <span className="value">
-                      {user?.displayName || 'Not set'}
-                    </span>
+
+                  <div className="info-section">
+                    <div className="info-item">
+                      <span className="label">👤 Full Name:</span>
+                      <span className="value">
+                        {user?.displayName && user.displayName !== undefined ? user.displayName : 'Not provided'}
+                      </span>
+                    </div>
                   </div>
-                  <div className="info-item">
-                    <span className="label">💼 Account Type:</span>
-                    <span className="value">
-                      {user?.userType === 'jobseeker' ? '💼 Job Seeker' : '🏢 Employer'}
-                    </span>
+
+                  <div className="info-section">
+                    <div className="info-item">
+                      <span className="label">💼 Account Type:</span>
+                      <span className="value type-badge">
+                        {user?.userType === 'jobseeker' ? '💼 Job Seeker' : user?.userType === 'employer' ? '🏢 Employer' : 'Unknown'}
+                      </span>
+                    </div>
                   </div>
-                  <div className="info-item">
-                    <span className="label">📅 Member Since:</span>
-                    <span className="value">
-                      {user?.createdAt ? 
-                        (typeof user.createdAt === 'object' && user.createdAt.toDate 
-                          ? user.createdAt.toDate().toLocaleDateString() 
-                          : new Date(user.createdAt).toLocaleDateString()
-                        ) 
-                        : 'Just now'
-                      }
-                    </span>
+
+                  <div className="info-section">
+                    <div className="info-item">
+                      <span className="label">📅 Member Since:</span>
+                      <span className="value">
+                        {user?.createdAt ? 
+                          (typeof user.createdAt === 'object' && user.createdAt.toDate 
+                            ? user.createdAt.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+                            : new Date(user.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+                          ) 
+                          : 'Today'
+                        }
+                      </span>
+                    </div>
                   </div>
-                  <div className="info-item">
-                    <span className="label">⚙️ Account Status:</span>
-                    <span className="value status-badge active">✓ Active</span>
+
+                  <div className="info-section">
+                    <div className="info-item">
+                      <span className="label">⚙️ Account Status:</span>
+                      <span className="value status-badge active">✓ Active & Verified</span>
+                    </div>
                   </div>
                 </div>
 

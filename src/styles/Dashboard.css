@@ -397,7 +397,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 0;
+  padding: 1rem 0;
   border-bottom: 1px solid #e2e8f0;
   transition: all 0.3s ease;
   position: relative;
@@ -411,27 +411,46 @@
 .info-item:hover {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.05) 100%);
   margin: 0 -0.5rem;
-  padding: 1.2rem 0.5rem;
+  padding: 1rem 0.5rem;
   border-radius: 8px;
+}
+
+.info-section {
+  margin-bottom: 0.5rem;
+}
+
+.info-section:last-child .info-item {
+  border-bottom: none;
 }
 
 .info-item .label {
   font-weight: 700;
   color: #2d3748;
   font-size: 1.05rem;
-  min-width: 140px;
+  min-width: 160px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .info-item .value {
-  color: #718096;
+  color: #4a5568;
   font-size: 1.05rem;
   word-break: break-word;
   text-align: right;
   max-width: 400px;
   font-weight: 500;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.02) 100%);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+}
+
+.value.type-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
 }
 
 .status-badge {
