@@ -1,0 +1,288 @@
+/* Resume Upload Styles */
+
+.resume-upload-container {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin: 2rem 0;
+}
+
+.resume-header {
+  margin-bottom: 1.5rem;
+}
+
+.resume-header h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.resume-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Alerts */
+.alert {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid;
+  animation: slideIn 0.3s ease;
+}
+
+.alert-icon {
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.alert-error {
+  background: #fee2e2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+.alert-success {
+  background: #dcfce7;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+
+/* Resume Dropzone */
+.resume-dropzone {
+  border: 2px dashed #d1d5db;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+}
+
+.resume-dropzone.active {
+  border-color: #667eea;
+  background: #f0f4ff;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropzone-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.dropzone-content h4 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.dropzone-content p {
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.dropzone-hint {
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 1rem;
+}
+
+/* Resume Uploaded */
+.resume-uploaded {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: #f0fdf4;
+  border: 2px solid #86efac;
+  border-radius: 10px;
+  gap: 1rem;
+}
+
+.resume-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.resume-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.resume-details {
+  text-align: left;
+}
+
+.resume-name {
+  margin: 0;
+  color: #333;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.resume-status {
+  margin: 0.25rem 0 0 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.resume-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.resume-actions .btn-secondary,
+.resume-actions .btn-danger {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Resume Tips */
+.resume-tips {
+  background: #f0f4ff;
+  border: 1px solid #d1d5ff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.resume-tips h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.resume-tips ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #666;
+}
+
+.resume-tips li {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+/* Buttons in Resume Upload */
+.resume-upload-container .btn-primary,
+.resume-upload-container .btn-secondary,
+.resume-upload-container .btn-danger {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.resume-upload-container .btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.resume-upload-container .btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.resume-upload-container .btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.resume-upload-container .btn-secondary {
+  background: #f0f4ff;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.resume-upload-container .btn-secondary:hover:not(:disabled) {
+  background: #667eea;
+  color: white;
+}
+
+.resume-upload-container .btn-danger {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 2px solid #fecaca;
+}
+
+.resume-upload-container .btn-danger:hover:not(:disabled) {
+  background: #dc2626;
+  color: white;
+  border-color: #dc2626;
+}
+
+.resume-upload-container .btn-danger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resume-upload-container {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .resume-uploaded {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .resume-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .resume-details {
+    text-align: center;
+  }
+
+  .resume-actions {
+    width: 100%;
+  }
+
+  .resume-actions .btn-secondary,
+  .resume-actions .btn-danger {
+    flex: 1;
+  }
+
+  .dropzone-icon {
+    font-size: 2.5rem;
+  }
+
+  .resume-dropzone {
+    padding: 1.5rem;
+  }
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
