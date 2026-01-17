@@ -148,21 +148,37 @@ function Dashboard() {
                   </div>
                   <div className="info-item">
                     <span className="label">📧 Email:</span>
-                    <span className="value">{user?.email}</span>
+                    <span className="value">
+                      {user?.email || 'No email found'}
+                    </span>
                   </div>
                   <div className="info-item">
                     <span className="label">👤 Name:</span>
-                    <span className="value">{user?.displayName || 'Not set'}</span>
+                    <span className="value">
+                      {user?.displayName || 'Not set'}
+                    </span>
+                  </div>
+                  <div className="info-item">
+                    <span className="label">💼 Account Type:</span>
+                    <span className="value">
+                      {user?.userType === 'jobseeker' ? '💼 Job Seeker' : '🏢 Employer'}
+                    </span>
                   </div>
                   <div className="info-item">
                     <span className="label">📅 Member Since:</span>
                     <span className="value">
-                      {user?.createdAt?.toDate?.().toLocaleDateString() || 'Just now'}
+                      {user?.createdAt ? 
+                        (typeof user.createdAt === 'object' && user.createdAt.toDate 
+                          ? user.createdAt.toDate().toLocaleDateString() 
+                          : new Date(user.createdAt).toLocaleDateString()
+                        ) 
+                        : 'Just now'
+                      }
                     </span>
                   </div>
                   <div className="info-item">
                     <span className="label">⚙️ Account Status:</span>
-                    <span className="value status-badge active">Active</span>
+                    <span className="value status-badge active">✓ Active</span>
                   </div>
                 </div>
 
