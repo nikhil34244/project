@@ -1,11 +1,23 @@
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-} from 'firebase/auth';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
-import { auth, db } from './firebaseConfig';
+import axios from 'axios';
+
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+
+// Create axios instance
+const api = axios.create({
+  baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Add token to requests
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('authToken');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
 
 /**
  * Register a new user with email, password, and user type
@@ -16,21 +28,21 @@ import { auth, db } from './firebaseConfig';
  */
 export const registerUser = async (email, password, displayName, userType) => {
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-
-    // Store user data in Firestore
-    await setDoc(doc(db, 'users', user.uid), {
-      uid: user.uid,
-      email: email,
-      displayName: displayName,
-      userType: userType,
-      createdAt: new Date(),
+    const response = await api.post('/auth/register', {
+      email,
+      password,
+      displayName,
+      userType,
     });
 
-    return user;
+    // Store token in localStorage
+    if (response.data.token) {
+      localStorage.setItem('authToken', response.data.token);
+    }
+
+    return response.data.user;
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.response?.data?.error || error.message);
   }
 };
 
@@ -41,10 +53,19 @@ export const registerUser = async (email, password, displayName, userType) => {
  */
 export const loginUser = async (email, password) => {
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    return userCredential.user;
+    const response = await api.post('/auth/login', {
+      email,
+      password,
+    });
+
+    // Store token in localStorage
+    if (response.data.token) {
+      localStorage.setItem('authToken', response.data.token);
+    }
+
+    return response.data.user;
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.response?.data?.error || error.message);
   }
 };
 
@@ -53,33 +74,44 @@ export const loginUser = async (email, password) => {
  */
 export const logoutUser = async () => {
   try {
-    await signOut(auth);
+    await api.post('/auth/logout');
+    // Remove token from localStorage
+    localStorage.removeItem('authToken');
   } catch (error) {
     throw new Error(error.message);
   }
 };
 
 /**
- * Get current user data from Firestore
+ * Get current user data
  */
 export const getCurrentUser = async () => {
-  return new Promise((resolve, reject) => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        try {
-          const userDoc = await getDoc(doc(db, 'users', user.uid));
-          if (userDoc.exists()) {
-            resolve(userDoc.data());
-          } else {
-            resolve(null);
-          }
-        } catch (error) {
-          reject(error);
-        }
-      } else {
-        resolve(null);
-      }
-      unsubscribe();
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    if (!token) {
+      return null;
+    }
+
+    const response = await api.get('/auth/current-user');
+    return response.data;
+  } catch (error) {
+    // Clear token if invalid
+    localStorage.removeItem('authToken');
+    return null;
+  }
+};
+
+/**
+ * Update user profile
+ */
+export const updateUserProfile = async (displayName) => {
+  try {
+    const response = await api.put('/auth/update-profile', {
+      displayName,
     });
-  });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.error || error.message);
+  }
 };
